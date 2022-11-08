@@ -1,4 +1,4 @@
-# AndroidZip [![](https://jitpack.io/v/buggysofts-com/PreferenceStore.svg)](https://jitpack.io/#buggysofts-com/PreferenceStore)
+# PreferenceStore [![](https://jitpack.io/v/buggysofts-com/PreferenceStore.svg)](https://jitpack.io/#buggysofts-com/PreferenceStore)
 A customized preference store library for android with compile-time type checking and a lot more.
 
 <br />
