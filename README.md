@@ -44,6 +44,9 @@ And you are done importing the library.
 ## Sample codes
 Upcoming...
 
+<br />
+<br />
+
 Please share & rate the library if you find it useful.
 
 ### Happy coding!
