@@ -34,7 +34,7 @@ Finally, add these two dependencies to your app/module level build.gradle file
 dependencies {
     ...
     implementation 'com.google.code.gson:gson:2.9.1'
-    implementation 'com.github.buggysofts-com:PreferenceStore:v1.0.0'
+    implementation 'com.github.buggysofts-com:PreferenceStore:v1.0.1'
 }
 ```
 And you are done importing the library.

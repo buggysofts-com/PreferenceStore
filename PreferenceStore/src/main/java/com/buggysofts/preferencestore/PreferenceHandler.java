@@ -65,7 +65,6 @@ public abstract class PreferenceHandler {
     /**
      * Get value of the specified preference.
      * @param preference The preference from which we want our value.
-     * @param clazz Data type of <b>preference</b>. It is a dummy parameter used to avoid method erasure.
      * @param defaultOverride Optional value to override the actual return from underlying {@link SharedPreferences} instance.
      *                        Although it is declared as a vararg, you should pass at most one value. Others will be discarded.
      *
@@ -677,7 +676,7 @@ public abstract class PreferenceHandler {
 
     // initializers
     /**
-     * Initialize the bounded preference.
+     * Initialize the bounded preference. This call will return the passed preference immediately (without any further operation) if the preference is already available within the current underlying shared preference.
      * @param preference The preference which we are initializing.
      * @param overrideDefault Optional value to override the default of the specified bounded preference.
      *                        If it is not provided, the default value of the specified bounded preference will be used to initialize the preference.
@@ -687,6 +686,9 @@ public abstract class PreferenceHandler {
     @NonNull
     public BoundedPreference<Boolean> initializePreference(@NonNull BoundedPreference<Boolean> preference,
                                                            @NonNull Boolean... overrideDefault) throws RuntimeException {
+        // if already available, do not overwrite
+        if(contains(preference)) return preference;
+
         Boolean defaultValue = preference.getDefaultValue();
         if(overrideDefault.length > 0){
             // this will not be null here
@@ -703,7 +705,7 @@ public abstract class PreferenceHandler {
         return preference;
     }
     /**
-     * Initialize the bounded preference.
+     * Initialize the bounded preference. This call will return the passed preference immediately (without any further operation) if the preference is already available within the current underlying shared preference.
      * @param preference The preference which we are initializing.
      * @param overrideDefault Optional value to override the default of the specified bounded preference.
      *                        If it is not provided, the default value of the specified bounded preference will be used to initialize the preference.
@@ -713,6 +715,9 @@ public abstract class PreferenceHandler {
     @NonNull
     public BoundedPreference<Integer> initializePreference(@NonNull BoundedPreference<Integer> preference,
                                                            @NonNull Integer... overrideDefault) throws RuntimeException {
+        // if already available, do not overwrite
+        if(contains(preference)) return preference;
+
         Integer defaultValue = preference.getDefaultValue();
         if(overrideDefault.length > 0){
             // this will not be null here
@@ -729,7 +734,7 @@ public abstract class PreferenceHandler {
         return preference;
     }
     /**
-     * Initialize the bounded preference.
+     * Initialize the bounded preference. This call will return the passed preference immediately (without any further operation) if the preference is already available within the current underlying shared preference.
      * @param preference The preference which we are initializing.
      * @param overrideDefault Optional value to override the default of the specified bounded preference.
      *                        If it is not provided, the default value of the specified bounded preference will be used to initialize the preference.
@@ -739,6 +744,9 @@ public abstract class PreferenceHandler {
     @NonNull
     public BoundedPreference<Long> initializePreference(@NonNull BoundedPreference<Long> preference,
                                                         @NonNull Long... overrideDefault) throws RuntimeException {
+        // if already available, do not overwrite
+        if(contains(preference)) return preference;
+
         Long defaultValue = preference.getDefaultValue();
         if(overrideDefault.length > 0){
             // this will not be null here
@@ -755,7 +763,7 @@ public abstract class PreferenceHandler {
         return preference;
     }
     /**
-     * Initialize the bounded preference.
+     * Initialize the bounded preference. This call will return the passed preference immediately (without any further operation) if the preference is already available within the current underlying shared preference.
      * @param preference The preference which we are initializing.
      * @param overrideDefault Optional value to override the default of the specified bounded preference.
      *                        If it is not provided, the default value of the specified bounded preference will be used to initialize the preference.
@@ -765,6 +773,9 @@ public abstract class PreferenceHandler {
     @NonNull
     public BoundedPreference<Float> initializePreference(@NonNull BoundedPreference<Float> preference,
                                                          @NonNull Float... overrideDefault) throws RuntimeException {
+        // if already available, do not overwrite
+        if(contains(preference)) return preference;
+
         Float defaultValue = preference.getDefaultValue();
         if(overrideDefault.length > 0){
             // this will not be null here
@@ -781,7 +792,7 @@ public abstract class PreferenceHandler {
         return preference;
     }
     /**
-     * Initialize the bounded preference.
+     * Initialize the bounded preference. This call will return the passed preference immediately (without any further operation) if the preference is already available within the current underlying shared preference.
      * @param preference The preference which we are initializing.
      * @param overrideDefault Optional value to override the default of the specified bounded preference.
      *                        If it is not provided, the default value of the specified bounded preference will be used to initialize the preference.
@@ -791,6 +802,9 @@ public abstract class PreferenceHandler {
     @NonNull
     public BoundedPreference<String> initializePreference(@NonNull BoundedPreference<String> preference,
                                                           @NonNull String... overrideDefault) throws RuntimeException {
+        // if already available, do not overwrite
+        if(contains(preference)) return preference;
+
         String defaultValue = preference.getDefaultValue();
         if(overrideDefault.length > 0){
             // this will not be null here
@@ -807,7 +821,7 @@ public abstract class PreferenceHandler {
         return preference;
     }
     /**
-     * Initialize the bounded preference.
+     * Initialize the bounded preference. This call will return the passed preference immediately (without any further operation) if the preference is already available within the current underlying shared preference.
      * @param preference The preference which we are initializing.
      * @param overrideDefault Optional value to override the default of the specified bounded preference.
      *                        If it is not provided, the default value of the specified bounded preference will be used to initialize the preference.
@@ -818,6 +832,9 @@ public abstract class PreferenceHandler {
     @NonNull
     public final BoundedPreference<Set<String>> initializePreference(@NonNull BoundedPreference<Set<String>> preference,
                                                                      @NonNull Set<String>... overrideDefault) throws RuntimeException {
+        // if already available, do not overwrite
+        if(contains(preference)) return preference;
+
         Set<String> defaultValue = preference.getDefaultValue();
         if(overrideDefault.length > 0){
             // this will not be null here
@@ -834,7 +851,7 @@ public abstract class PreferenceHandler {
         return preference;
     }
     /**
-     * Initialize the bounded preference.
+     * Initialize the bounded preference. This call will return the passed preference immediately (without any further operation) if the preference is already available within the current underlying shared preference.
      * @param preference The preference which we are initializing.
      * @param overrideDefault Optional value to override the default of the specified bounded preference.
      *                        If it is not provided, the default value of the specified bounded preference will be used to initialize the preference.
@@ -845,6 +862,9 @@ public abstract class PreferenceHandler {
     @NonNull
     public final <T extends Serializable> BoundedPreference<T> initializePreference(BoundedPreference<T> preference,
                                                                                     @NonNull T... overrideDefault) throws RuntimeException {
+        // if already available, do not overwrite
+        if(contains(preference)) return preference;
+
         T defaultValue = preference.getDefaultValue();
         if(overrideDefault.length > 0){
             // this will not be null here
