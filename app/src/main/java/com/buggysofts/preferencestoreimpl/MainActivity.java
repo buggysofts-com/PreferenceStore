@@ -14,7 +14,7 @@ import com.google.gson.reflect.TypeToken;
 import java.util.HashSet;
 import java.util.Set;
 
-class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
