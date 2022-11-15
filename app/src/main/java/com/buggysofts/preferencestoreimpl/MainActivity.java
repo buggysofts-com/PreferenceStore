@@ -1,10 +1,10 @@
 package com.buggysofts.preferencestoreimpl;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Context;
 import android.os.Bundle;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.buggysofts.preferencestore.BoundedPreference;
 import com.buggysofts.preferencestore.PreferenceHandler;
@@ -21,48 +21,48 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         UnBoundedPreference<String> k = new UnBoundedPreference<>(
-                "k",
-                "k"
+            "k",
+            "k"
         );
         UnBoundedPreference<Set<String>> kk = new UnBoundedPreference<>(
-                "kk",
-                "kk"
+            "kk",
+            "kk"
         );
         UnBoundedPreference<SerializableModel> kkk = new UnBoundedPreference<>(
-                "kkk",
-                "kkk"
+            "kkk",
+            "kkk"
         );
 
         BoundedPreference<String> v = new BoundedPreference<>(
-                "v",
-                "v",
-                new String[]{"1v", "2v"},
-                0
+            "v",
+            "v",
+            new String[]{"1v", "2v"},
+            0
         );
         BoundedPreference<Set<String>> vv = new BoundedPreference<>(
-                "v",
-                "v",
-                new Set[]{
-                        new HashSet<String>(0),
-                        new HashSet<String>(0)
-                },
-                0
+            "v",
+            "v",
+            new Set[]{
+                new HashSet<String>(0),
+                new HashSet<String>(0)
+            },
+            0
         );
         BoundedPreference<SerializableModel> vvv = new BoundedPreference<>(
-                "kkk",
-                "kkk",
-                new SerializableModel[]{
-                        new SerializableModel(0, "xxx"),
-                        new SerializableModel(1, "yyy")
-                },
-                0
+            "kkk",
+            "kkk",
+            new SerializableModel[]{
+                new SerializableModel(0, "xxx"),
+                new SerializableModel(1, "yyy")
+            },
+            0
         );
 
         PreferenceHandler preferenceHandler = new PreferenceHandler(
-                MainActivity.this,
-                "app_preferences",
-                MODE_PRIVATE,
-                true
+            MainActivity.this,
+            "app_preferences",
+            MODE_PRIVATE,
+            true
         ) {
             @Override
             public void initializePreferenceValues(@NonNull Context context) {
@@ -73,35 +73,37 @@ public class MainActivity extends AppCompatActivity {
         // bounded
         // string
         preferenceHandler.getPreferenceValue(
-                v,
-                ""
+            v,
+            ""
         );
         // string set
         preferenceHandler.getPreferenceValue(
-                vv,
-                new HashSet<String>(0)
+            vv,
+            new HashSet<String>(0)
         );
         // serializable
         preferenceHandler.getPreferenceValue(
-                vvv,
-                new TypeToken<SerializableModel>(){}
+            vvv,
+            new TypeToken<SerializableModel>() {
+            }
         );
 
         // unbounded
         // string
         preferenceHandler.getPreferenceValue(
-                k,
-                ""
+            k,
+            ""
         );
         // string set
         preferenceHandler.getPreferenceValue(
-                kk,
-                null
+            kk,
+            null
         );
         // serializable
         preferenceHandler.getPreferenceValue(
-                kkk,
-                new TypeToken<SerializableModel>(){}
+            kkk,
+            new TypeToken<SerializableModel>() {
+            }
         );
     }
 }
